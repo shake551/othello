@@ -25,7 +25,13 @@ while True:
     elif puts_storn.turn == -1:
         which = "white"
     print(which + "のターン-->")
-    x, y = map(int, input().split(","))
+    
+    while True:
+        try:
+            x, y = map(int, input().split(","))
+            break
+        except ValueError:
+            print("指定された形で入力してください-->")
 
     judge = puts_storn.judge_place(x, y)
     if judge == True:
