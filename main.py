@@ -1,19 +1,11 @@
 import put_storn
 import output_storn
+import make_csv
 
 puts_storn = put_storn.PutsStorn()
 output_storn = output_storn.outputs_storn
 
-START_BOARD = [[2,2,2,2,2,2,2,2,2,2],
-               [2,0,0,0,0,0,0,0,0,2],
-               [2,0,0,0,0,0,0,0,0,2],
-               [2,0,0,0,0,0,0,0,0,2],
-               [2,0,0,0,-1,1,0,0,0,2],
-               [2,0,0,0,1,-1,0,0,0,2],
-               [2,0,0,0,0,0,0,0,0,2],
-               [2,0,0,0,0,0,0,0,0,2],
-               [2,0,0,0,0,0,0,0,0,2],
-               [2,2,2,2,2,2,2,2,2,2]]
+put_place = [["x", "y"]]
 
 output_storn(puts_storn.board)
 
@@ -29,6 +21,8 @@ while True:
     while True:
         try:
             x, y = map(int, input().split(","))
+            temporary_place = [x, y]
+            put_place.append(temporary_place)
             break
         except ValueError:
             print("指定された形で入力してください-->")
@@ -56,5 +50,6 @@ while True:
         elif black < white:
             print('白の勝利')
         print('end')
+        print(put_place)
+        make_csv.make_csv(put_place)
         break
-    
