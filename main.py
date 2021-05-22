@@ -17,7 +17,7 @@ while True:
     elif puts_storn.turn == -1:
         which = "white"
     print(which + "のターン-->")
-    
+
     while True:
         try:
             x, y = map(int, input().split(","))
@@ -31,11 +31,11 @@ while True:
     if judge == True:
         puts_storn.reverse_storn(x, y)
         output_storn(puts_storn.board)
-            
+
     elif judge == False:
         print("その位置に石は置けません")
 
-    judge_end_or_continue = puts_storn.judge_end(puts_storn.board, puts_storn.turn)
+    judge_end_or_continue = puts_storn.judge_end()
     if judge_end_or_continue == False:
         black = 0
         white = 0

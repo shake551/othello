@@ -6,36 +6,17 @@
         5 4 3
 """
 
-"""
-[[0,-1], [1,-1], [1,0], [1,1], [0,1], [-1,1], [-1,0], [-1,-1]]でやる
-"""
+import make_move_point
 
 
-def judge_reversible_storn(direction, x, y, start_x, start_y, board, turn, count):
+def judge_reversible_storn(direction, x, y, board, turn, count):
     # 0~7の数字で検索する方向を管理
+
+    # 移動方向ごとに動く座標を二次元配列化
+    move_point = make_move_point.make_move_point(0)
     while True:
-        if direction == 0:
-            y -= 1
-        elif direction == 1:
-            x += 1
-            y -= 1
-        elif direction == 2:
-            x += 1
-        elif direction == 3:
-            x += 1
-            y += 1
-        elif direction == 4:
-            y += 1
-        elif direction == 5:
-            x -= 1
-            y += 1
-        elif direction == 6:
-            x -= 1
-        elif direction == 7:
-            x -= 1
-            y -= 1
-        else:
-            print("out of range")
+        x += move_point[direction][0]
+        y += move_point[direction][1]
 
         # 検索途中に8*8のマスの外に出たら終わり
         if x < 1 or 8 < x:
