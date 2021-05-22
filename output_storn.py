@@ -6,7 +6,7 @@ def outputs_storn(board):
     for y in range(10):
         for x in range(10):
             if board[y][x] == 1:
-                print("○ ", end = '')
+                print("◎ ", end = '')
                 #print('{:^3}'.format(puts_storn.board[y][x]), end = '')
             elif board[y][x] == -1:
                 print("● ", end = '')
